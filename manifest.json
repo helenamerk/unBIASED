@@ -19,7 +19,7 @@
 	"background": {
 	  "scripts": ["background.js", "popup.js"]
 	},
-	"web_accessible_resources": ["popup.css"],
+	"web_accessible_resources": ["popup.css", "content.css"],
 	"homepage_url": "http://www.unbiasedsites.com/",
 	"browser_action": {
 	    "default_icon": "icon.png",
