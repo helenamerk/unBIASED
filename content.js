@@ -35,7 +35,7 @@ function populateWebsites(query)
 	websites = JSON.parse(req.responseText)
 
 	for (var i = 0; i < websites.length; i++) {
-		document.getElementById("bkg").innerHTML += '<a href='+ websites[i]["url"] +'>'+ websites[i]["title"] +'</a>'
+		document.getElementById("bkg").innerHTML += '<div style="color:white;font-family:Lato;font-size:15px"> <a href='+ websites[i]["url"] +'>'+ websites[i]["title"] +'</a><div>'
 	}
 }
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let htmlDiv = `
 <div id="bkg" style="align-items: center; position:fixed; top:100px;bottom:auto; width:200px; right:0px;background-color:rgba(60, 60, 60, 0.7);padding:15px;margin:25px;font-family:Lato !important;font-size:24px">  
-  <h3> <center> unBIASED </center> </h3> 
+  <div> <center> unBIASED </center> </div> 
   <form onsubmit="return false">
     <input id="box" type="text" name="searchterm" style ="!important; width:100%;" placeholder="Search Term"><br>
     <button id="submit" type="button" style="width:100%;margin-top:10px;">Search</button>
