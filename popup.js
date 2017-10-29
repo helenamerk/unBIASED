@@ -1,3 +1,4 @@
+/*
 var _ = require('underscore'),
     AYLIENTextAPI = require("aylien_textapi");
 
@@ -15,7 +16,7 @@ var titleWeight = 3,
 
 function keywordsfind(myurl){
     textapi.combined({
-        url: myurl;
+        url: myurl,
         endpoint: ['extract', 'concepts']
     }, function(err, result) {
       if (err === null) {
@@ -63,7 +64,7 @@ function keywordsfind(myurl){
     });
 }
 
-
+*/
 function populateWebsites(searchTerm)
 {
   var z = document.createElement("h6");
@@ -92,11 +93,13 @@ document.addEventListener("DOMContentLoaded", function () {
         //if find ( tab.url == biased arrray ) docmunet.createelement("p") .. 
         var req = new XMLHttpRequest();
 
-        document.getElementById("mykeywords").innerHTML(keywordsfind(tab.url));
+        //document.getElementById("mykeywords").innerHTML(keywordsfind(tab.url));
 
         mystr = tab.url;
         mystr = mystr.replace("http://", "");
         mystr = mystr.replace("https://", "");
+        mystr = mystr.slice(0,mystr.indexOf("/"));
+
         req.open("GET", "http://54.167.41.138:8080/url/" + mystr, false)
         req.send(null)
         console.log(req.responseText)

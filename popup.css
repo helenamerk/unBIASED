@@ -1,27 +1,4 @@
-dl {
-  display: flex;
-  background-color: white;
-  flex-direction: column;
-  width: 100%;
-  max-width: 700px;
-  position: relative;
-  padding: 20px;
-}
-
-dt {
-  align-self: flex-start;
-  width: 100%;
-  font-weight: 700;
-  display: block;
-  text-align: left;
-  font-size: 1.2em;
-  font-weight: 700;
-  margin-bottom: 20px;
-  margin-left: 130px;
-  font-family: "Lato";
-}
-
-.text {
+.text, .myURL {
   display: flex;
   align-items: left;
   height: 40px;
@@ -33,22 +10,25 @@ dt {
 
 }
 
-p {
+p, .myURL {
   align-items: center;
-  font-size: 1.2em;
   font-weight: 600;
-  font-size: .8em;
+  font-size: 15px;
   text-transform: uppercase;
   font-family: "Lato";
 }
 
 
-html, body {
+html, .myURL {
   height: 100px;
   font-family: "Lato";
   color: #FFFFFF;
   min-width:100px;
   background-color:rgba(60, 60, 60, 0.7)
+}
+
+div {
+  min-width: 100px;
 }
 
 
