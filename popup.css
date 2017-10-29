@@ -13,23 +13,34 @@ dt {
   width: 100%;
   font-weight: 700;
   display: block;
-  text-align: center;
+  text-align: left;
   font-size: 1.2em;
   font-weight: 700;
   margin-bottom: 20px;
   margin-left: 130px;
+  font-family: "trebuchet-ms",trebuchet;
 }
 
 .text {
-  font-weight: 600;
   display: flex;
-  align-items: center;
+  align-items: left;
   height: 40px;
   width: 130px;
   background-color: white;
   position: absolute;
   left: 0;
   justify-content: flex-end;
+  font-family: "trebuchet-ms",trebuchet;
+
+}
+
+p {
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: 600;
+  font-size: .8em;
+  text-transform: uppercase;
+  font-family: "trebuchet-ms",trebuchet;
 }
 
 .percentage {
@@ -459,7 +470,7 @@ dt {
 }
 
 html, body {
-  height: 500px;
+  height: 350px;
   font-family: "trebuchet-ms",trebuchet;
   color: #333;
   min-width:500px;

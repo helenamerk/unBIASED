@@ -29,7 +29,7 @@ function myFunction() {
 function populateWebsites(query)
 {
 	var req = new XMLHttpRequest();
-	req.open("GET", "http://localhost:3000/allsides/" + query, false)
+	req.open("GET", "http://54.167.41.138:8080/allsides/" + query, false)
 	req.send(null)
 	console.log(req.responseText)
 	websites = JSON.parse(req.responseText)
@@ -60,10 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
 */
 
 let htmlDiv = `
-<div id="bkg" style="position:fixed; top:100px;bottom:auto; right:0px;background-color:rgba(60, 60, 60, 0.7);padding:15px;margin:25px;font-family:Lato !important;font-size:24px">  
+<div id="bkg" style="align-items: center; position:fixed; top:100px;bottom:auto; width:200px; right:0px;background-color:rgba(60, 60, 60, 0.7);padding:15px;margin:25px;font-family:Lato !important;font-size:24px">  
   <h3> <center> unBIASED </center> </h3> 
   <form onsubmit="return false">
-    <input id="box" type="text" name="searchterm" style ="!important;" placeholder="Search Term"><br>
+    <input id="box" type="text" name="searchterm" style ="!important; width:100%;" placeholder="Search Term"><br>
     <button id="submit" type="button" style="width:100%;margin-top:10px;">Search</button>
   </form>
   </div>
