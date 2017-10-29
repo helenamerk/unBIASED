@@ -57,6 +57,6 @@ textapi.combined({
       top[i] = topic;
     }
  
-    console.log(top);
+    //console.log(top);
   }
 });
