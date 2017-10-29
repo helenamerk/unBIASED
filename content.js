@@ -58,14 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("submit").onclick = _clickHandler;
 });
 */
-let htmlDiv = `<div id="bkg" style="color: #FFFFFF;border: 1px solid black; background-color: #000099; float:top">  
+
+let htmlDiv = `
+<div id="bkg" style="position:fixed; top:100px;bottom:auto; right:0px;background-color:rgba(60, 60, 60, 0.7);padding:15px;margin:25px;font-family:Lato !important;font-size:24px">  
+  <h3> <center> unBIASED </center> </h3> 
   <form onsubmit="return false">
-    POV Search: <input id="box" type="text" name="searchterm" style="color: #000000"><br>
-    <button id="submit" type="button">Search</button>
+    <input id="box" type="text" name="searchterm" style ="!important;" placeholder="Search Term"><br>
+    <button id="submit" type="button" style="width:100%;margin-top:10px;">Search</button>
   </form>
   </div>
 `
 $("body").append(htmlDiv);
+
+
+
 
 if (document.readyState === 'loading'){
 	document.addEventListener("DOMContentLoaded",afterDOMLoaded);
