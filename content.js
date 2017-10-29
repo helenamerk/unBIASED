@@ -9,6 +9,7 @@ chrome.runtime.onMessage.addListener(
 );
 
 
+
 /*
 var div=document.createElement("div"); 
 document.body.appendChild(div); 
@@ -24,20 +25,24 @@ function myFunction() {
     alert("The form was submitted");
     return false;
 }
-function populateWebsites(searchTerm)
+
+function populateWebsites(query)
 {
-  console.log(searchTerm)
+	var req = new XMLHttpRequest();
+	req.open("GET", "http://localhost:3000/allsides/" + query, false)
+	req.send(null)
+	console.log(req.responseText)
+	websites = JSON.parse(req.responseText)
+
+	for (var i = 0; i < websites.length; i++) {
+		document.getElementById("bkg").innerHTML += '<a href='+ websites[i]["url"] +'>'+ websites[i]["title"] +'</a>'
+	}
 }
 
 function _clickHandler() { //when search submit is clicked
-    console.log("In Success Handler..");
     if (document.getElementById('box').value.length < 1) {
         return false;
-    } else {
-        console.log("In Success Handler..");
-        console.log(document.getElementById('box').value)
-        //Do Your AJAX Request Call here
-
+    } else { 
         populateWebsites(document.getElementById('box').value)
     }
 }
@@ -55,10 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
 */
 let htmlDiv = `<div id="bkg" style="color: #FFFFFF;border: 1px solid black; background-color: #000099; float:top">  
   <form onsubmit="return false">
-    POV Search: <input id="box" type="text" name="searchterm"><br>
+    POV Search: <input id="box" type="text" name="searchterm" style="color: #000000"><br>
     <button id="submit" type="button">Search</button>
   </form>
-  
   </div>
 `
 $("body").append(htmlDiv);
@@ -69,7 +73,6 @@ if (document.readyState === 'loading'){
 	afterDOMLoaded();
 }
 function afterDOMLoaded(){
-	console.log("hi")
     document.getElementById("submit").onclick = _clickHandler;
 }
 //let t2='<div id="pop_bg" style="height: 100%; width: 100%;"></div><div id="mgt_popup"><span class="popup_close"></span><div><img id="logo" src="'+link3+'"/></div><div id="pop_inner"><label id="user"></label><input type="button" id="mailgett" value="Go To MailGet"/></div></div>'
@@ -84,4 +87,3 @@ input1.setAttribute("type", "submit");
 input1.setAttribute("id", "startsearch");
 input1.setAttribute("value", "Search");
 */
-console.log("hellllllo");

@@ -6,7 +6,6 @@ const app = express();
 
 app.get('/allsides/:query', function(req, res) {
     var query = req.params.query
-    console.log("query: " + query + "\n")
     var API_KEY = "8317b7ec4aff48269c4fe72bff5c05a0"
     request({
         uri: "https://www.allsides.com/bias/bias-ratings",
@@ -25,7 +24,6 @@ app.get('/allsides/:query', function(req, res) {
             bias = bias_str.slice(12).split("-").join(" ");
 
             outlet_to_bias[outlet] = bias;
-            //console.log(outlet + ": " + bias)
         }
 
         request({
@@ -38,20 +36,22 @@ app.get('/allsides/:query', function(req, res) {
             news = JSON.parse(body);
             values = news["value"]
 
+            output = []
             for(var i = 0; i < values.length; i++) {
                 outlet = values[i]["provider"][0]['name'].toLowerCase().replace('the ', '');
                 title = values[i]["name"];
+                url = values[i]["url"]
 
                 if(outlet in outlet_to_bias) {
-                    console.log("Title: " + title)
-                    console.log("Outlet: " + outlet)
-                    console.log("Bias: " + outlet_to_bias[outlet])
-                    console.log("")
+                    output.push({
+                        "title": title,
+                        "outlet": outlet,
+                        "url": url,
+                        "bias": bias
+                    })
                 }
-                
-
             }
-            res.send(body);
+            res.send(JSON.stringify(output));
         });
     });
 });

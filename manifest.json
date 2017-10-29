@@ -3,7 +3,7 @@
   "name": "unBIASED",
   "version": "0.1",
   "content_security_policy": "script-src 'self' 'sha256-PKX1NcgeOmRWUNWPB/yq03pYqO2a+UoKHLI09KuEipM='; object-src 'self'",
-  "permissions": [ "contentSettings", "tabs", "storage"],
+  "permissions": [ "contentSettings", "tabs", "storage", "http://localhost/*"],
   "content_scripts": [
     {
       "matches": [
