@@ -40,11 +40,11 @@ app.get('/url/:url', function(req, res) {
 })
 
 app.get('/allsides/:query', function(req, res) {
-    var _ = require('underscore'),
-        AYLIENTextAPI = require("aylien_textapi");
+    var _ = require('underscore'), AYLIENTextAPI = require("aylien_textapi");
 
     var query = req.params.query;
     var API_KEY = "8317b7ec4aff48269c4fe72bff5c05a0";
+    
     request({
         uri: "https://www.allsides.com/bias/bias-ratings",
 
@@ -93,9 +93,10 @@ app.get('/allsides/:query', function(req, res) {
             });
         });
     });
+});
 
-    app.get('keywords/:url', function(req, res) {
-        myurl = req.params.url
+app.get('keywords/:url', function(req, res) {
+    myurl = req.params.url
 
 
     var textapi = new AYLIENTextAPI({
@@ -157,7 +158,7 @@ app.get('/allsides/:query', function(req, res) {
         //console.log(top);
 
         res.send(top.join(", "));
-      }
+        }
     });
 })
 
