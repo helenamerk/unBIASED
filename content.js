@@ -34,8 +34,10 @@ function populateWebsites(query)
 	console.log(req.responseText)
 	websites = JSON.parse(req.responseText)
 
-	for (var i = 0; i < websites.length; i++) {
-		document.getElementById("bkg").innerHTML += '<div style="color:white;font-family:Lato;font-size:15px"> <a href='+ websites[i]["url"] +'>'+ websites[i]["title"] +'</a><div>'
+  mystyle = "text-decoration:none;line-height:1!important;color:white;font-family:Lato;font-size:15px"
+  document.getElementById("bkg").innerHTML += "<br>"
+	for (var i = 0; i < 3; i++) {
+		document.getElementById("bkg").innerHTML += '<div style=line-height:1!important><p style='+mystyle+'>Bias: '+websites[i]["bias"]+'</p><a href='+ websites[i]["url"] +'  style="'+mystyle+'">'+ websites[i]["title"] +'</a><div><br>'
 	}
 }
 
@@ -59,16 +61,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 */
 
+
+let htmlStyle = `<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>`
+$("head").append(htmlStyle);
+
 let htmlDiv = `
-<div id="bkg" style="align-items: center; position:fixed; top:100px;bottom:auto; width:200px; right:0px;background-color:rgba(60, 60, 60, 0.7);padding:15px;margin:25px;font-family:Lato !important;font-size:24px">  
-  <div> <center> unBIASED </center> </div> 
+<div id="bkg" style="align-items: center; position:fixed; top:100px;bottom:auto; width:250px; right:0px;background-color:rgba(60, 60, 60, 0.7);padding:15px;margin:25px;font-family:Lato !important;font-size:24px">  
+  <div style="color:white;"> <center style="padding-bottom:5px;"> unBIASED </center> </div> 
   <form onsubmit="return false">
-    <input id="box" type="text" name="searchterm" style ="!important; width:100%;" placeholder="Search Term"><br>
-    <button id="submit" type="button" style="width:100%;margin-top:10px;">Search</button>
+    <input id="box" type="text" name="searchterm" style ="!important; width:100%; padding: 8px 0px; font-family:Lato;font-size:20px;" placeholder="Search Term"><br>
+    <button id="submit" type="button" style="box-shadow:none;background-color:rgba(60, 60, 60, 1);border-color:rgba(60, 60, 60, 0);color:white;width:100%;margin-top:10px; font-family:Lato;font-size:25px">Search</button>
   </form>
   </div>
 `
 $("body").append(htmlDiv);
+
 
 
 
